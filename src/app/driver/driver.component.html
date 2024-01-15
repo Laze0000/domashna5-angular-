@@ -1,0 +1,15 @@
+<div [ngClass] = "klasi()" [ngStyle]="{'background-color': (reden % 2 === 0) ? 'lightblue' : 'lightred'}">
+    <div class="course-title" [ngStyle]="{'background-color':'yellow'} ">{{reden + '. ' + igrac.name}}</div>
+    <ng-template #noImg><p>NEMA SLIKA</p></ng-template>
+    <img [src] = "igrac.iconUrl" *ngIf = "igrac.iconUrl; else noImg" width="30%" height="30%">
+    <div class="course-title">{{igrac.team}}</div>
+    <div class="course-title">{{igrac.points}}</div>
+    <div class="course-category" [ngSwitch] = "igrac.allStar">
+        <div class="course-title" *ngSwitchCase = "3">3 Time All-Star</div>
+        <div class="course-title" *ngSwitchCase = "5">5 Time All-Star</div>
+        <div class="course-title" *ngSwitchCase = "10">10 Time All-Star</div>
+        <div class="course-title" *ngSwitchCase = "7">7 Time All-Star</div>
+    </div>
+
+    <button (click) = "klik()">Klikni me be</button>
+</div>
